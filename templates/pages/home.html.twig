@@ -4,7 +4,33 @@
 <div class= "jumbotron text-center mt-4">
 <h1> bienvenue sur la homepage </h1>
 </div>
+<div class= "container">
+<h2>les derniers biens</h2>
+<div class="row flex"> 
+{% for property in properties %}
 
+<div class="col-3"> 
+
+<div>
+<div class="card"> 
+
+
+</div>
+
+ <div class="card-body">
+ <h5 class="card-title">
+ <a href="">{{ property.getTitle() }}</a>
+  </h5>
+<p class="card-text">{{ property.city}} {{ property.postalCode }} </p>
+<div class="text-primary">{{ property.prince | number_format('0', '', ' ') }} $
+</div>
+</div>
+
+
+{% endfor %}
+
+</div>
+</div>
 
 
 
