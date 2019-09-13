@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ObjectManager;
 
 
+
  class PropertyController extends AbstractController
  {
      
@@ -34,4 +35,26 @@ use Doctrine\Common\Persistence\ObjectManager;
     ]);   }
 
 
+
+   /**
+ * @route("/biens/{slug}-{id}", name="property.show", requirements={"slug": "[a-z0-9\-]*"})
+ * @param  Property $property
+ * @return Response
+ */
+
+ public function show(Property $property,string $slug): Response
+ {
+    if ($property->getslug() !== $slug)
+    {
+      return $this->redirectToRoute('property.show', [
+         'id' => $property->getId(),
+         'slug' => $property->getSlug()
+      ], 301);
+    }
+   return $this->render('property/show.html.twig', [
+      'property' => $property,
+      'current_menu' => 'properties'
+
+   ]);
+ }
  }

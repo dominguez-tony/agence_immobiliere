@@ -1,6 +1,6 @@
 {%extends 'base.html.twig'%}
 {% block body %}
-{%block title 'ma super agence'%}
+
 <div class= "jumbotron text-center mt-4">
 <h1> bienvenue sur la homepage </h1>
 </div>
@@ -17,12 +17,12 @@
 
 </div>
 
- <div class="card-body">
+ <div class="card-body" style="border: 1px solid black">
  <h5 class="card-title">
- <a href="">{{ property.getTitle() }}</a>
+ <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.getTitle() }}</a>
   </h5>
 <p class="card-text">{{ property.city}} {{ property.postalCode }} </p>
-<div class="text-primary">{{ property.prince | number_format('0', '', ' ') }} $
+<div class="text-primary" style="font-weight: bold; font-size: 2em">{{ property.formattedPrince }} $
 </div>
 </div>
 
