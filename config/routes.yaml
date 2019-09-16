@@ -2,3 +2,8 @@
 #   path: /
 #   controller: App\Controller\HomeController::index
 
+
+# edit:
+#   path: /admin/property
+#   controller: App\Controller\Admin\AdminPropertyController::edit
+
