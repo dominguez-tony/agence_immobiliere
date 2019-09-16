@@ -37,17 +37,21 @@ class AdminPropertyController extends AbstractController{
 
  /**
     * @route("/admin/property/{id}", name="admin.property.edit")
+    * @param  Property $property
     * @return Response
      */
     
 
-    public function edit(): Response
+    public function edit(Property $property): Response
     {
     
     
        
     
-    return $this->render('admin/property/edit.html.twig');
+    return $this->render('admin/property/edit.html.twig', [
+
+        'property' => $property,
+    ]);
     }
 
 
