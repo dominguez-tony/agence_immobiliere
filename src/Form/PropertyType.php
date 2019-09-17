@@ -40,6 +40,4 @@ class PropertyType extends AbstractType
         ]);
     }
 
-  
-
 }
