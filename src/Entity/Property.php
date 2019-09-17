@@ -11,12 +11,12 @@ class Property
 {
 
 
-    const HEAT= [
+    const HEAT = [
 
         0 => 'Electrique',
-        1 => 'Gaz',
-        2 => 'Bois',
-        3 => 'Alternative Energie'
+        1 => 'Gaz'
+       
+      
     ];
 
 

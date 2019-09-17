@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Property;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Form\PropertyType;
+
 
 
 
@@ -38,19 +40,20 @@ class AdminPropertyController extends AbstractController{
  /**
     * @route("/admin/property/{id}", name="admin.property.edit")
     * @param  Property $property
+    * @param  PropertyType $form
     * @return Response
      */
     
 
-    public function edit(Property $property): Response
+    public function edit(Property $property,PropertyType $form): Response
     {
     
-    
+    $form = $this->createform(PropertyType::class, $property);
        
     
     return $this->render('admin/property/edit.html.twig', [
-
         'property' => $property,
+        'form' => $form->createview()
     ]);
     }
 
