@@ -2,17 +2,19 @@
 {% block body %}
 
 <div class= "jumbotron text-center mt-4">
-<h1> bienvenue sur la homepage </h1>
+<h1> Bienvenue sur la Homepage </h1>
 </div>
-<div class= "container">
-<h2>les derniers biens</h2>
-<div class="col-3"> 
+<h2 style="text-align: center;">Les derniers biens</h2>
+<div class= "container" style="display: inline-flex;">
+
+
+
 {% for property in properties %}
 
- 
+ <div class="col-4"> 
 
 
-<div class="card mt-4"> 
+<div class="card mt-4"style="margin: auto;"> 
 
 
 
@@ -22,16 +24,18 @@
  <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.getTitle() }}</a>
   </h5>
 <p class="card-text">{{ property.city}} {{ property.postalCode }} </p>
-<div class="text-primary" style="font-weight: bold; font-size: 2em">{{ property.formattedPrince }} $
-</div>
+<div class="text-primary" style="font-weight: bold; font-size: 2em">{{ property.formattedPrince }} $</div>
 </div>
 
-
+</div>
+</div>
 {% endfor %}
 
+
+
 </div>
-</div>
-</div>
+
+
 
 
 

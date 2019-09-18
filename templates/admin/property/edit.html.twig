@@ -9,9 +9,10 @@
 
 <div class= "container mt-2">
 <h2 class="text-center">Editer le bien {{ property.title }}</h2>
+{{ form_start(form)}}
  <div class="row">
  
- 
+ {{ form_start(form)}}
  
   <div class="col-md-4">  {{ form_row(form.title) }} </div>
   <div class="col-md-4">  {{ form_row(form.surface) }} </div>
@@ -32,8 +33,19 @@
 <div class="col-md-4">  {{ form_row(form.city) }} </div>
 <div class="col-md-4">  {{ form_row(form.postal_code) }} </div>
 <div class="col-md-1">  {{ form_row(form.sold) }} </div>
- 
+
+
   </div>
+ {# <div class="row"> #}
+
+{# <div class="col-md-1">  {{ form_row(form.save) }} </div> #}
+{# 
+  </div> #}
+
+
+
+
+ {{ form_end(form)}}
 
 
 
@@ -41,7 +53,6 @@
 
   </div>
   
-<button class="btn btn-primary mt-2" style="margin-left: 30%;">Editer</button>
 
 
 
