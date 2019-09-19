@@ -1,0 +1,35 @@
+{%extends 'base.html.twig'%}
+{% block body %}
+
+<div class= "jumbotron text-center mt-2"style="">
+<h1 class=""> Gestion de l'édition </h1>
+</div>
+
+
+{% for message in app.flashes('success') %}
+
+<div class="alert alert-success">
+{{ "Bien Modifié avec Succès!!!" }}
+</div>
+
+
+{% endfor %}
+
+<div class= "container mt-2">
+<h2 class="text-center">Créer un nouveau bien </h2>
+{{ include('admin/property/_form.html.twig') }}
+
+ 
+
+
+
+
+
+
+  </div>
+  
+
+
+
+
+{% endblock %}

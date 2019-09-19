@@ -31,7 +31,7 @@ class PropertyType extends AbstractType
             ->add('adress')
             ->add('postal_code')
             ->add('sold')
-            ->add('save', SubmitType::class, ['label' => 'Editer'])
+            ->add('Enregistrer', SubmitType::class)
         ;
     }
 

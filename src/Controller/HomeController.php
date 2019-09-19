@@ -23,7 +23,7 @@ class HomeController extends AbstractController
     // public function __construct(Environment $twig)
     // {
     //     $this->twig = $twig;
-    // }
+    // }  
 
 public function index(PropertyRepository $repository): Response
 {

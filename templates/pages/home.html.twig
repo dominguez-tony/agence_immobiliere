@@ -5,16 +5,23 @@
 <h1> Bienvenue sur la Homepage </h1>
 </div>
 <h2 style="text-align: center;">Les derniers biens</h2>
-<div class= "container" style="display: inline-flex;">
+<div class= "container" style="display: inline-flex;  margin-left: 9%;">
+
+{% for message in app.flashes('success') %}
+
+<div class="alert alert-success">
+{{ "Bien Modifié avec Succès!!!" }}
+</div>
 
 
+{% endfor %}
 
 {% for property in properties %}
 
  <div class="col-4"> 
 
 
-<div class="card mt-4"style="margin: auto;"> 
+<div class="card mt-4"style="border: 1px solid green; justify-content: center;"> 
 
 
 
