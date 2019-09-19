@@ -79,7 +79,7 @@ class AdminPropertyController extends AbstractController{
 
         $this->em->persist($property);
         $this->em->flush();
-        $this->addFlash('success','Bien Modifié avec Succès!!!');
+        $this->addFlash('success','Bien Créé avec Succès!!!');
 
        
      
@@ -153,7 +153,7 @@ class AdminPropertyController extends AbstractController{
 
         $this->em->remove($property);
         $this->em->flush();
-        $this->addFlash('success','Bien Modifié avec Succès!!!');
+        $this->addFlash('success','Bien Supprimé avec Succès!!!');
         return $this->redirectToRoute('admin');
     }
 
