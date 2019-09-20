@@ -13,14 +13,6 @@ use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 
-
-
-
-
-
-
-
-
 class AdminPropertyController extends AbstractController{
 
    /**
@@ -47,10 +39,8 @@ class AdminPropertyController extends AbstractController{
     * @return Response
      */
     
-
     public function index(PropertyRepository $repository): Response
     {
-    
     
         $properties = $repository->findAll();
     
@@ -80,9 +70,6 @@ class AdminPropertyController extends AbstractController{
         $this->em->persist($property);
         $this->em->flush();
         $this->addFlash('success','Bien Créé avec Succès!!!');
-
-       
-     
         return $this->redirectToRoute('admin');
        }
       
@@ -102,7 +89,6 @@ class AdminPropertyController extends AbstractController{
     * @return Response
      */
     
-
     public function edit(Property $property,PropertyType $form,Request $request)
     {
     
@@ -126,13 +112,6 @@ class AdminPropertyController extends AbstractController{
     }
 
 
-
-
-
-
-
-
-
     /**
     * @route("/admin/property/{id}", name="admin.property.delete", methods="DELETE")
     * @param  Property $property
@@ -140,8 +119,6 @@ class AdminPropertyController extends AbstractController{
     *@param Symfony\Component\Security\Csrf\CsrfToken
     * @return Symfony\Component\HttpFoundation\Response
      */
-
-
 
 
     public function delete(Property $property,Request $request, CsrfTokenManagerInterface $csrfTokenManager)
@@ -156,44 +133,6 @@ class AdminPropertyController extends AbstractController{
         $this->addFlash('success','Bien Supprimé avec Succès!!!');
         return $this->redirectToRoute('admin');
     }
-
-
-
-
-
-
-
-
-
-   //  /**
-   //  * @route("/admin/property/{id}", name="admin.property.delete", methods="DELETE")
-   //  * @param  Property $property
-   //  *@param  Request $request
-   //  *@param Symfony\Component\Security\Csrf\CsrfToken
-   //  * @return Symfony\Component\HttpFoundation\Response
-   //   */
-    
-
-
-
-
-
-//     public function delete(Property $property,Request $request)
-//     {
-    
-//       if ($this->isCsrfTokenValid('delete' . $property->getId(), $request->get('_csrf_token')))
-// {
-//         $this->em->remove($property);
-//         $this->em->flush();
-//         $this->addFlash('success','bien supprimé avec succès');
-//         return $this->redirectToRoute('admin');
-        
-// }
-
-//         return $this->redirectToRoute('home');
-        
-//     }
-
 
     
     }

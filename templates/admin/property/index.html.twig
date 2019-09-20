@@ -5,17 +5,21 @@
 <h1> Gérer les biens </h1>
 </div>
 
+
+<div class= "container mt-4">
+<h2>Gestion des biens</h2>
+
+
 {% for message in app.flashes('success') %}
 
-<div class="alert alert-success">
+<div class="alert alert-success" style="text-align: center;">
 {{ message }}
 </div>
 
 
 {% endfor %}
 
-<div class= "container mt-4">
-<h2>Gestion des biens</h2>
+
  <table class="table table-striped">
  <thead> 
  <tr> 
@@ -43,7 +47,7 @@
    </tbody>
    </table>
 <div class="text-right">
-   <a href="{{ path('admin.property.new') }}" class="btn btn-primary">Créer</a>
+   <a href="{{ path('admin.property.new') }}" class="btn btn-primary">Créer un nouveau bien</a>
 
 
 </div>
