@@ -1,0 +1,45 @@
+{%extends 'base.html.twig'%}
+{% block body %}
+
+<div class= "jumbotron text-center mt-4">
+<h1>Formulaire d'inscription</h1>
+</div>
+
+
+<div class="container mt-4">
+    {# {% if error %}
+    <div class="alert alert-danger">
+    {{ error.messageKey | trans(error.messagedata, 'user') }}
+    </div>
+    {% endif %}  #}
+
+{% for message in app.flashes('success') %}
+
+<div class="alert alert-success" style="text-align: center;">
+{{ message }}
+</div>
+
+
+{% endfor %}
+
+
+   {{ form_start(form)}}
+ <div class="form-group ml-5">
+  
+  <div class="col-md-5">  {{ form_row(form.username) }} </div>
+     </div>
+ <div class="form-group ml-5">
+
+  <div class="col-md-5">  {{ form_row(form.password) }} </div>
+  
+   </div>
+ {{ form_end(form) }}
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

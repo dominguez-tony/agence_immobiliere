@@ -1,9 +1,11 @@
-# home:
-#   path: /
-#   controller: App\Controller\HomeController::index
+# user:
+#    path: /admin/user
+#    controller: App\Controller\Admin\AdminUserController::index
 
 
 # edit:
 #   path: /admin/property
 #   controller: App\Controller\Admin\AdminPropertyController::edit
 
+logout:
+    path: /logout
