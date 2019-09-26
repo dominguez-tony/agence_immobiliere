@@ -1,53 +1,24 @@
-{%extends 'base.html.twig'%}
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello you{% endblock %}
+
 {% block body %}
-
-<div class= "jumbotron text-center mt-4">
-<h1> Se connecter</h1>
-</div>
+  <h1>Connexion sur l'espace User</h1>
 
 
-<div class="container mt-4">
-    {% if error %}
-    <div class="alert alert-danger">
-    {{ error.messageKey | trans(error.messagedata, 'security') }}
-    </div>
-    {% endif %}
 
- {# <form method="post" action=" {{ path('login') }} ">
-
+<form action="{{ path('security_login')}}" method="POST">
 <div class="form-group">
-<label for="username">Nom</label>
-<input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}">
+    <input placeholder="Votre nom" required name="_username" type="text" class="form-control">
 </div>
-
 <div class="form-group">
-<label for="password">Mot de passe</label>
-<input type="password" id="password" name="_password" class="form-control" >
+    <input placeholder="Votre mot de passe" required name="_password" type="password" class="form-control">
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-success">Connexion</button>
 
 </div>
-
-  <button type="submit" class="btn btn-primary">Se connecter</button>
-          <a class="btn btn-success" href="{{path('admin.user.register')}}">S'enregistrer</a>
-
-   </form> #}
-
-     {# {{ form_start(form)}}
- <div class="form-group ml-5">
-  
-  <div class="col-md-5">  {{ form_row(form.username) }} </div>
-     </div>
- <div class="form-group ml-5">
-
-  <div class="col-md-5">  {{ form_row(form.password) }} </div>
-  
-   </div>
- {{ form_end(form) }} #}
-
-    </div>
-
-
-
-
+</form>
 
 
 {% endblock %}

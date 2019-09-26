@@ -3,12 +3,19 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+
 /**
+ * @UniqueEntity(
+ * fields={"username"},
+ * message="Nom déjà utilisé"
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface,\Serializable
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -18,14 +25,21 @@ class User implements UserInterface,\Serializable
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,)
      */
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=255 )
+     * @ORM\Column(type="string", length=255)
+     * @Assert\EqualTo(propertyPath="confirm_password", message = "votre mot de passe doit être le même que la confirmation")
+     * @Assert\Length( min = 8, max = 25, minMessage = "votre mot de passe doit faire 8 caractères minimum", maxMessage = "votre mot de passe doit faire 25 caractères maximum" )    
      */
     private $password;
+
+    /**
+     * @Assert\EqualTo(propertyPath="password", message = "votre mot de passe doit être le même ")
+     */
+    public $confirm_password;
 
     public function getId(): ?int
     {
@@ -55,65 +69,12 @@ class User implements UserInterface,\Serializable
 
         return $this;
     }
+    public function getSalt(){}
 
-    /**
-     * @return (Role|string)[] The user roles
-     */
+    public function eraseCredentials(){}
 
     public function getRoles()
     {
-        return ['ROLE_ADMIN'];
-    }
-
-     /**
-     * @return string|null The salt
-     */
-
-    public function getSalt()
-    {
-        return null;
-    }
-
-
-public function eraseCredentials()
-    {
-        
-    }
-
-    /**
-     * string representation of object
-     * @link https://php.net/manual/en/class.serializable.php
-     * @return string the string representation of the object or null
-     * @since 5.1.0
-     */
-
-       public function serialize()
-       {
-           return $this->serialize([
-               $this->id,
-               $this->username,
-               $this->password
-           ]);
-       }
-   
-
-    /**
-    * Constructs the object
-    * @link https://php.net/manual/en/class.serializable.php
-    * @param string $serialized
-    * @return void
-    * @since 5.1.0
-    */
-
-       public function unserialize($serialized)
-       {
-           list(
-               $this->id,
-               $this->username,
-               $this->password
-           ) = unserialize($serialized, ['allowed_classes' => false]);
-       }
-
-
-
+            return ['ROLE_USER'];
+     }
 }

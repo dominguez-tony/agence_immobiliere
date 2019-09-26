@@ -34,7 +34,7 @@ class AdminPropertyController extends AbstractController{
     }
 
  /**
-    * @route("/admin", name="admin")
+    * @route("/admin", name="admin.property.index")
     *@param PropertyRepository  $repository
     * @return Response
      */
@@ -70,7 +70,7 @@ class AdminPropertyController extends AbstractController{
         $this->em->persist($property);
         $this->em->flush();
         $this->addFlash('success','Bien Créé avec Succès!!!');
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('admin.property.index');
        }
       
     return $this->render('admin/property/new.html.twig', [
