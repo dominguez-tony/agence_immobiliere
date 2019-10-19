@@ -102,7 +102,7 @@ class AdminPropertyController extends AbstractController{
 
        
      
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('admin.property.index');
        }
       
     return $this->render('admin/property/edit.html.twig', [
@@ -131,7 +131,7 @@ class AdminPropertyController extends AbstractController{
         $this->em->remove($property);
         $this->em->flush();
         $this->addFlash('success','Bien Supprimé avec Succès!!!');
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('admin.property.index');
     }
 
     

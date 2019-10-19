@@ -1,5 +1,5 @@
 security:
-    access_denied_url: /admin
+    # access_denied_url: /admin
     encoders:
         App\Entity\User:
             algorithm: bcrypt
@@ -47,7 +47,7 @@ security:
         # - { path: ^/admin/users, roles: ROLE_SUPER_ADMIN }
 
         # matches /admin/* except for anything matching the above rule
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/admin, roles: ROLE_ADMIN }
         #  - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/profile, roles: ROLE_USER }
     

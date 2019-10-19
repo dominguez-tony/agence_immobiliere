@@ -6,6 +6,64 @@
 <h1> voir tous nos biens </h1>
 </div>
 
+<div class= "jumbotron text-center mt-4">
+<div class= "container">
+{{ form_start(form) }}
 
+ <div class="form-row">
+  <div class="col">  {{ form_row(form.minSurface) }} </div>
+  <div class="col">  {{ form_row(form.maxPrince) }} </div>
+  <div class="col">  {{ form_row(form.chercher) }} </div>
+   </div>
+
+
+
+{{ form_end(form) }}
+
+</div>
+</div>
+
+
+
+<div class="row ml-2">
+    {% for property in properties %}
+
+<div class="col-md-4">
+  
+
+
+{% include "property/_property.html.twig" %} 
+    
+
+</div>
+
+
+{% endfor %}
+<div class="pagination">
+   {{ knp_pagination_render(properties) }}
+</div>
+
+
+</div>
 
 {% endblock %}
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Liste des property{% endblock %}
+
+{% block body %}
+    <h1>Liste des articles</h1>
+    {% for property in properties %}
+      <div class="col-md-4">
+  
+
+
+{% include "property/_property.html.twig" %} 
+    
+
+</div>
+    {% endfor %}
+   <div class="pagination">
+   {{ knp_pagination_render(properties) }}
+</div>
+{% endblock %} #}
