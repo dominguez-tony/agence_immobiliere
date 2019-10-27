@@ -1,6 +1,7 @@
 <?php
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -23,8 +24,17 @@ private $minSurface;
 /**
  * @return int|null
  */
+    /**
+     * @var ArrayCollection
+     */
+    private $opt;
+    public function __construct()
+    {
+        $this->opt = new ArrayCollection();
+    }
 
-public function getMaxPrince(): ?int
+
+    public function getMaxPrince(): ?int
 {
 return $this->maxPrince;
 
@@ -63,5 +73,19 @@ public function setMinSurface(int $minSurface)
 
 }
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getOpt(): ArrayCollection
+    {
+        return $this->opt;
+    }
 
+    /**
+     * @param ArrayCollection $opt
+     */
+    public function setOpt(ArrayCollection $opt): void
+    {
+        $this->opt = $opt;
+    }
 }

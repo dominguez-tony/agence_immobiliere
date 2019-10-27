@@ -2,11 +2,13 @@
 
 namespace App\Form;
 
+use App\Entity\Opt;
 use App\Entity\Property;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class PropertyType extends AbstractType
@@ -26,6 +28,12 @@ class PropertyType extends AbstractType
                     'Gaz' => '0',
                     'Bois' => '1',
                     'Electrique' => '2')
+            ])
+            ->add('opts', EntityType::class,[
+                'class' => Opt::class,
+                'choice_label' => 'name',
+                'multiple' => true
+
             ])
             ->add('city')
             ->add('adress')
